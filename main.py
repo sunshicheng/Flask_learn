@@ -1,12 +1,10 @@
 from flask import Flask, render_template
-from flask_script import Manager
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
 
 app = Flask(__name__)
 
-manager = Manager(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
@@ -36,4 +34,4 @@ def internal_server_error(e):
 
 
 if __name__ == '__main__':
-    manager.run()
+    app.run()

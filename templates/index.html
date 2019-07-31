@@ -5,5 +5,6 @@
 {% block page_content %}
 <div class="page-header">
     <h1>Hello World!</h1>
+    <p>现在的时间是： {{ moment(current_time).format('LLL') }}.</p>
 </div>
 {% endblock %}
