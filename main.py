@@ -1,4 +1,4 @@
-from flask import Flask, render_template,session,redirect,url_for
+from flask import Flask, render_template,session,redirect,url_for,flash
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
@@ -21,9 +21,11 @@ class NameForm(FlaskForm):
 # index页面路由,加上时间
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    name = None
     form = NameForm()
     if form.validate_on_submit():
+        old_name = session.get('name')
+        if old_name is not None and old_name != form.name.data:
+            flash('这个看起来不是你的名字呀!')
         session['name'] = form.name.data
         return redirect(url_for('index'))
     return render_template('index.html', current_time=datetime.utcnow(),form=form, name=session.get('name'))
