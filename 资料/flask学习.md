@@ -16,7 +16,8 @@
 9. falsk启动方法
    - 使用python main.py runserver
    - 先export FLASK_APP=hello.py，然后执行flask run
-10. 
+
+10. markdown编辑器也可以使用zelttlr
 
 
 
