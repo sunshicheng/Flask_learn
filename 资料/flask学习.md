@@ -1,6 +1,6 @@
 ### 知识点总结 
 
-1. 源码地址：<https://github.com/miguelgrinberg/flasky-first-edition>
+1. 源码地址：<[https://github.com/miguelgrinberg/flasky](<https://github.com/miguelgrinberg/flasky>)>
 2. 四个常用的前置或者之后要处理的函数
    - before_first_request : 在处理第一个请求之前运行
    - before_request:  在每次请求之前运行
@@ -16,6 +16,7 @@
 9. falsk启动方法
    - 使用python main.py runserver
    - 先export FLASK_APP=hello.py，然后执行flask run
+10. 
 
 
 
