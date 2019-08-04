@@ -44,7 +44,7 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 
-# index页面路由,加上时间
+# index页面路由,加上时间,视图操作用函数
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = NameForm()
