@@ -18,6 +18,10 @@
    - 先export FLASK_APP=hello.py，然后执行flask run
 
 10. markdown编辑器也可以使用zelttlr
+11. 数据库操作
+    - db.session.add() 增加数据到缓存 -> db.session.commit()提交数据到数据库
+    - 删除行 db.session.delete() -> db.session.commit
+    - 
 
 
 
@@ -37,5 +41,6 @@
    5. pip install flask_wtf 模板操作
    6. pip install flask-sqlalchemy 链接数据库
    7. pip install flask-migrate 迁移数据库
+   8. 
    ```
 
