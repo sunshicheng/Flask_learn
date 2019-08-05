@@ -25,7 +25,7 @@
     - 创建迁移仓库：flask db init
     - 自动创建迁移脚本：flask db migrate -m "initial migration"
     - 更新数据库： flask db upgrade
-    - 
+ 13. flask集成邮件
 
 
 
@@ -44,6 +44,6 @@
    5. pip install flask_wtf 模板操作
    6. pip install flask-sqlalchemy 链接数据库
    7. pip install flask-migrate 迁移数据库
-   8. 
+   8. pip install flask-mail 电子邮件支持
    ```
 
