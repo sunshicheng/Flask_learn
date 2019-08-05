@@ -1,11 +1,12 @@
 import os
-from flask_moment import Moment
 from datetime import datetime
+from flask_moment import Moment
 from flask_wtf import FlaskForm
+from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from wtforms import StringField, SubmitField
 from flask import Flask, render_template, session, redirect, url_for, flash
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -17,6 +18,7 @@ db = SQLAlchemy(app)
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+migrate = Migrate(app,db)
 
 
 class NameForm(FlaskForm):
