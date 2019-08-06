@@ -1,5 +1,7 @@
 import os
+from flask_mail import Mail
 from datetime import datetime
+from flask_mail import Message
 from flask_moment import Moment
 from flask_wtf import FlaskForm
 from flask_migrate import Migrate
@@ -10,15 +12,28 @@ from wtforms import StringField, SubmitField
 from flask import Flask, render_template, session, redirect, url_for, flash
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
 app = Flask(__name__)
+# session验证
 app.config['SECRET_KEY'] = 'hard to guess string'
+# 链接数据库
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqllite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# 使用邮件
+app.config['MAIL_SERVER'] = 'smtp.exmail.qq.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[Flasky]'
+app.config['FLASKY_MAIL_SENDER'] = 'Flasky Admin <sunshicheng@xiaozhu.com>'
+app.config['FLASKY_ADMIN'] = os.environ.get('FLASKY_ADMIN')
 
-bootstrap = Bootstrap(app)
+mail = Mail(app)
+db = SQLAlchemy(app)
 moment = Moment(app)
-migrate = Migrate(app,db)
+bootstrap = Bootstrap(app)
+migrate = Migrate(app, db)
 
 
 class NameForm(FlaskForm):
@@ -46,6 +61,14 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 
+def send_email(to, subject, template, **kwargs):
+    msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + ' ' + subject,
+                  sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
+    msg.body = render_template(template + '.txt', **kwargs)
+    msg.html = render_template(template + '.html', **kwargs)
+    mail.send(msg)
+
+
 # index页面路由,加上时间,视图操作函数添加
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -57,6 +80,8 @@ def index():
             db.session.add(user)
             db.session.commit()
             session['known'] = False
+            if app.config['FLASKY_ADMIN']:
+                send_email(app.config['FLASKY_ADMIN'], 'Nwe User', 'mail/new_user', user=user)
         else:
             session['known'] = True
         session['name'] = form.name.data
@@ -83,9 +108,11 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
+
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db,User=User,Role=Role)
+    return dict(db=db, User=User, Role=Role)
+
 
 if __name__ == '__main__':
     app.run()
