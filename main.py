@@ -1,5 +1,6 @@
 import os
 from flask_mail import Mail
+from threading import Thread
 from datetime import datetime
 from flask_mail import Message
 from flask_moment import Moment
@@ -61,12 +62,19 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 
+def send_async_email(app, msg):
+    with app.app_context():
+        mail.send_message(msg)
+
+
 def send_email(to, subject, template, **kwargs):
-    msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + ' ' + subject,
+    msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + subject,
                   sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
-    mail.send(msg)
+    thr = Thread(target=send_async_email(), args=[app, msg])
+    thr.start()
+    return thr
 
 
 # index页面路由,加上时间,视图操作函数添加
@@ -85,7 +93,7 @@ def index():
         else:
             session['known'] = True
         session['name'] = form.name.data
-        #form.name.data = ''
+        # form.name.data = ''
         return redirect(url_for('index'))
     return render_template('index.html', current_time=datetime.utcnow(), form=form, name=session.get('name'),
                            known=session.get('known', False))
