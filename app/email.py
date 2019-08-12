@@ -4,10 +4,10 @@ DateTime : 19-8-7 下午8:55
 FileName : email.py
 
 """
-from threading import Thread
-from flask import current_app, render_template
-from flask_mail import Message
 from . import mail
+from threading import Thread
+from flask_mail import Message
+from flask import current_app, render_template
 
 
 def send_async_email(app, msg):
