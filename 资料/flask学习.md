@@ -25,7 +25,8 @@
     - 创建迁移仓库：flask db init
     - 自动创建迁移脚本：flask db migrate -m "initial migration"
     - 更新数据库： flask db upgrade
- 13. flask集成邮件
+  13. flask集成邮件
+  14. flask文件目录后操作
 
 
 
