@@ -22,11 +22,13 @@
     - db.session.add() 增加数据到缓存 -> db.session.commit()提交数据到数据库
     - 删除行 db.session.delete() -> db.session.commit()
  12. 迁移数据库操作：
+
     - 创建迁移仓库：flask db init
     - 自动创建迁移脚本：flask db migrate -m "initial migration"
     - 更新数据库： flask db upgrade
   13. flask集成邮件
-  14. flask文件目录后操作
+    14. flask管理已经登录的用户会话
+    15. flask修改成项目
 
 
 
