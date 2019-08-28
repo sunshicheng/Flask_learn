@@ -27,13 +27,15 @@ class User(db.Model):
 
     @property
     def password(self):
-        raise AttributeError('密码不正确')
+        raise AttributeError('密码不是可读属性！')
 
     @password.setter
+    #通过generate_password_hash()生成密码，变成不可读属性
     def password(self,password):
         self.password_hash=generate_password_hash(password)
 
     def verify_password(self,password):
+        #只接受一个参数，就是密码
         return check_password_hash(self.password_hash,password)
 
     def __repr__(self):
