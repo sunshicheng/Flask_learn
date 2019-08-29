@@ -27,8 +27,8 @@
     - 自动创建迁移脚本：flask db migrate -m "initial migration"
     - 更新数据库： flask db upgrade
   13. flask集成邮件
-    14. flask管理已经登录的用户会话
-    15. flask修改成项目
+        14. flask管理已经登录的用户会话
+        15. flask修改成项目
 
 
 
@@ -48,5 +48,6 @@
    6. pip install flask-sqlalchemy 链接数据库
    7. pip install flask-migrate 迁移数据库
    8. pip install flask-mail 电子邮件支持
+   9. pip install flask-login 使用flask-login验证用户身份
    ```
 
