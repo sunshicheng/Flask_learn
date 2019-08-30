@@ -39,14 +39,19 @@
     {% endfor %}
     {% block page_content %}{% endblock %}
 </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li><a href="{{ url_for('main.index') }}">首 页</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('auth.logout') }}">登 出</a></li>
+        {% else %}
+        <li><a href="{{ url_for('auth.login') }}">登 入</a></li>
+        {% endif %}
+    </ul>
+</div>
 {% endblock %}
-<ul class="nav navbar-nav navbar-right">
-    {% if current_user.is_authenticated %}
-    <li><a href="{{ url_for('auth.logout') }}">登出</a></li>
-    {% else %}
-    <li><a href="{{ url_for('auth.login') }}">登录</a></li>
-    {% endif %}
-</ul>
 
 {% block scripts %}
 {{ super() }}
