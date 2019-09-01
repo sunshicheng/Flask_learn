@@ -28,9 +28,9 @@ def login():
     return render_template('auth/login.html', form=form)
 
 
-@auth.route('/logout')
-@login_required()
-def logout():
-    logout_user()
-    flash('你已经退出了。')
-    return redirect(url_for('main.index'))
+# @auth.route('/logout')
+# @login_required()
+# def logout():
+#     logout_user()
+#     flash('你已经退出了。')
+#     return redirect(url_for('main.index'))

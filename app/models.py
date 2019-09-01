@@ -4,8 +4,8 @@ DateTime : 19-8-7 下午8:55
 FileName : models.py
 
 """
-from . import db
-from . import login_manager
+
+from . import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 

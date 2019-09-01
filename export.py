@@ -9,3 +9,4 @@ import os
 
 os.system("export FLASK_APP=flasky.py")
 os.system("export FLASK_DEBUG=1")
+#os.system("FLASK_CONFIG=development")
