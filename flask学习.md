@@ -69,4 +69,39 @@
 
    
 
-5. 
+5. flask 请求对象
+
+   | 属性或方法   | 说明                                                         |
+   | ------------ | ------------------------------------------------------------ |
+   | form         | 一个字典，存储请求提交的所有表单字段                         |
+   | args         | 一个字典，存储通过url查询字符串传递的所有参数                |
+   | values       | 一个字典，from和args的合集                                   |
+   | cookies      | 一个字典，存储请求的所有cookie                               |
+   | headers      | 一个字典，存储请求的所有http首部                             |
+   | files        | 一个字典，存储请求上传的所有文件                             |
+   | get_data()   | 返回请求主体缓冲的数据                                       |
+   | get_json()   | 返回一个Python字典，包含解析请求主体后得到的json             |
+   | blueprint    | 处理请求的flask蓝本的名称                                    |
+   | endpoint     | 处理请求的flask端点的名称，flask把视图函数的名称用作路由端点的名称 |
+   | method       | http请求方法                                                 |
+   | scheme       | url方案（http或者https）                                     |
+   | is_secure()  | 通过安全的链接（https）发送请求返回True                      |
+   | host         | 请求定义的主机名。如果客户端定义了端口号，还包括端口号       |
+   | path         | url的路径部分                                                |
+   | query_string | url的查询字符串的部分，返回原始二进制值                      |
+   | full_path    | url的路径和查询字符串部分                                    |
+   | url          | 客户端请求的完整url                                          |
+   | base_url     | 同url，但是没有查询字符串的部分                              |
+   | remote_addr  | 客户端的IP地址                                               |
+   | environ      | 请求原始的WSGI环境字典                                       |
+
+   
+
+6. flask请求钩子
+
+   - before_request 注册一个函数，在每次请求之前运行
+   - before_first_request 注册一个函数，只在处理第一个请求之前运行，可以通过这个钩子添加服务器初始化任务。
+   - after_request，注册一个函数，如果没有未处理的异常，在每次请求之后运行。
+   - teardown_request，注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。
+
+7. 响应
