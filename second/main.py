@@ -13,17 +13,15 @@ def user(name):
 	return 'hello,{}'.formate(name)
 """
 
-
-
-from flask import Flask
+from flask import Flask,render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return 'hello!'
+	return render_template('index.html')
 
 #添加一个动态路由
 @app.route('/user/<name>')
 def user(name):
-	return 'hello,{}!'.format(name)
+	return render_template('user.html',name=name)

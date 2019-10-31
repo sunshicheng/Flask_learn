@@ -52,6 +52,9 @@
    ```
 
 ### 书中的知识点记录：
+
+##### 第二章
+
 1. flask --help
 
 2. flask run --help
@@ -104,4 +107,26 @@
    - after_request，注册一个函数，如果没有未处理的异常，在每次请求之后运行。
    - teardown_request，注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行。
 
-7. 响应
+7. Flask响应对象
+
+   | 属性或方法      | 说明                                         |
+   | --------------- | -------------------------------------------- |
+   | status_code     | HTTP数字状态码                               |
+   | headers         | 一个类似字典的对象，包含随响应发送的所有首部 |
+   | set_cookies()   | 为响应添加一个cookie                         |
+   | delete_cookie() | 删除一个cookie                               |
+   | content_length  | 响应主体的长度                               |
+   | content_type    | 响应主体的媒体类型                           |
+   | set_data()      | 使用字符串或字节值设定响应                   |
+   | get_data()      | 获取响应主体                                 |
+
+   redirect()，重定向
+
+   abort()，处理错误报错
+
+8. Flask扩展
+
+##### 第三章
+
+1. Jinja模板渲染templates目录
+2. 变量
