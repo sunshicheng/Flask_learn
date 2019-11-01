@@ -149,3 +149,44 @@
      | striptags  | 渲染之前把值中所有的HTML标签都删掉         |
 
 3. 控制结构
+
+   - 条件判断语句
+
+     ```html
+     {% if user %}
+     	hello ,{{user}}
+     {% else %}
+     	hello,stranger.
+     {% endif %}
+     ```
+
+     
+
+   - for循环
+
+     ```html
+     <ul>
+     	{% for commet in comment %}
+     		<li>{{comment}}</li>
+     	{% endfor %}
+     </ul>
+     ```
+
+     
+
+   - 宏定义，相当于python的函数
+
+     ```html
+     {% macro render_comment(comment) %}
+     	<li>{{comment}}</li>
+     {% endmacro %}
+     <ul>
+         {% for ccomment in ccomment %}
+         	{% render_comment(comment) %}
+         {% endfor %}
+     </ul> 
+     ```
+
+     
+
+   - 模板
