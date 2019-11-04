@@ -189,4 +189,6 @@
 
      
 
-   - 模板
+   - 模板，需要一个base.html，然后使用extends去继承这个页面。
+
+4. 使用flask-bootstrap集成bootstrap，使用pip install flask-bootstrap
