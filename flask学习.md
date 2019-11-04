@@ -191,4 +191,21 @@
 
    - 模板，需要一个base.html，然后使用extends去继承这个页面。
 
-4. 使用flask-bootstrap集成bootstrap，使用pip install flask-bootstrap
+4. 使用flask-bootstrap集成bootstrap，使用pip install flask-bootstrap。bootstrap的base.html可以使用的区块如下。
+
+   | 区块名       | 说明                       |
+   | ------------ | -------------------------- |
+   | doc          | 整个HTML文档               |
+   | html_attribs | <html>标签的属性           |
+   | html         | <html>标签中的内容         |
+   | head         | <head>标签中的内容         |
+   | title        | <title>标签中的内容        |
+   | metas        | 一组<meta>标签             |
+   | styles       | css声明                    |
+   | body_attribs | <body> 标签的属性          |
+   | body         | <body> 标签中的内容        |
+   | navbar       | 用户定义的导航栏           |
+   | content      | 用户定义的页面内容         |
+   | scripts      | 文档底部的 JavaScript 声明 |
+
+   

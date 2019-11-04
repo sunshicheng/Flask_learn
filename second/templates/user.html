@@ -1,3 +1,34 @@
-{% extends "bootstrap/base.html "%}
-{% block title %}Flask web {% endblock %}
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Flask web 
+{% endblock %}
+
 {% block navbar %}
+<div class="navbar navbar-inverse" role="navigation"></div>
+	<div class="cointainer">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/"> Flask Blog</a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+			</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block content %}
+<div class="cointainer">
+	<div class="page-header">
+		<h1>hello,{{ name }}</h1>
+	</div>
+</div>
+{% endblock %}
