@@ -13,7 +13,7 @@ def user(name):
 	return 'hello,{}'.formate(name)
 """
 
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 # 格式化时间
 from flask_moment import Moment
@@ -36,15 +36,13 @@ class NameForm(FlaskForm):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    name = None
     form = NameForm()
     if form.validate_on_submit():
-        # 第一次不做处理
-        # name = form.name.data
-        # form.name.data = ''
+        old_name = session.get('name')
+        if old_name is not None and old_name != form.name.data:
+            flash("你的名字看来有点问题")
         session['name'] = form.name.data
         return redirect(url_for('index'))
-    #return render_template('index.html', current_time=datetime.utcnow(), form=form, name=name))
     return render_template('index.html', current_time=datetime.utcnow(), form=form, name=session.get('name'))
 
 
