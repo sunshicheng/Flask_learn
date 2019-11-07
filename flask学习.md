@@ -437,7 +437,7 @@
    ```
    export FLASK_ADMIN=1248185022@qq.com
    export MAIL_USERNAME=sunshicheng@xiaozhu.com
-   export MAIL_PASSWORD=Ssc940929
+   export MAIL_PASSWORD=密码
    ```
 
    
