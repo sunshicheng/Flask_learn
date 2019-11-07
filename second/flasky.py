@@ -54,6 +54,7 @@ app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 # 邮件内容配置
 app.config['FLASK_MAIL_SUBJECT_PREFIX'] = '[Flask web]'
 app.config['FLASK_MAIL_SENDER'] = 'Admin <sunshicheng@xiaozhu.com>'
+app.config['FLASK_ADMIN'] = os.environ.get('FLASK_ADMIN')
 
 
 def send_email(to, subject, template, **kwargs):
@@ -130,6 +131,8 @@ def index():
             db.session.add(user)
             db.session.commit()
             session['known'] = False
+            if app.config['FLASK_ADMIN']:
+                send_email(app.config['FLASK_ADMIN'], 'New User', 'mail/new_user', user=user)
         else:
             session['known'] = True
         session['name'] = form.name.data

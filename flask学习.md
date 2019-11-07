@@ -432,4 +432,12 @@
    这样就可以了。可以发送出去。
    ```
 
-4. 
+4. 相关export
+
+   ```
+   export FLASK_ADMIN=1248185022@qq.com
+   export MAIL_USERNAME=sunshicheng@xiaozhu.com
+   export MAIL_PASSWORD=Ssc940929
+   ```
+
+   
