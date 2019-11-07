@@ -13,7 +13,7 @@ def user(name):
 	return 'hello,{}'.formate(name)
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect, url_for
 from flask_bootstrap import Bootstrap
 # 格式化时间
 from flask_moment import Moment
@@ -39,9 +39,13 @@ def index():
     name = None
     form = NameForm()
     if form.validate_on_submit():
-        name = form.name.data
-        form.name.data = ''
-    return render_template('index.html', current_time=datetime.utcnow(), form=form, name=name)
+        # 第一次不做处理
+        # name = form.name.data
+        # form.name.data = ''
+        session['name'] = form.name.data
+        return redirect(url_for('index'))
+    #return render_template('index.html', current_time=datetime.utcnow(), form=form, name=name))
+    return render_template('index.html', current_time=datetime.utcnow(), form=form, name=session.get('name'))
 
 
 # 添加一个动态路由
