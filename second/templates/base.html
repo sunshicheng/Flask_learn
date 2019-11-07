@@ -40,5 +40,7 @@
 
 {% block scripts %}
     {{ super() }}
-    {{ moment.inclue_moment() }}
+    {{ moment.include_moment() }}
+    {#    这个是修改语言的#}
+    {{ moment.locale('zh_cn') }}
 {% endblock %}
