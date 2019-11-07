@@ -31,6 +31,10 @@ from flask_sqlalchemy import SQLAlchemy
 # 数据迁移
 from flask_migrate import Migrate
 
+# 邮箱
+from flask_mail import Mail
+from flask_mail import Message
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # app配置项
@@ -38,10 +42,34 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'hard to guess string'
+
+# 邮箱配置
+app.config['MAIL_SERVER'] = 'smtp.exmail.qq.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+
+# 邮件内容配置
+app.config['FLASK_MAIL_SUBJECT_PREFIX'] = '[Flask web]'
+app.config['FLASK_MAIL_SENDER'] = 'Admin <sunshicheng@xiaozhu.com>'
+
+
+def send_email(to, subject, template, **kwargs):
+    msg = Message(app.config['FLASK_MAIL_SUBJECT_PREFIX'] + subject, sender=app.config['FLASK_MAIL_SENDER'],
+                  recipients=[to])
+    msg.body = render_template(template + '.txt', **kwargs)
+    msg.html = render_template(template + '.html', **kwargs)
+    mail.send(msg)
+
+
+# 一个应用应该有的
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 db = SQLAlchemy(app)
-migrate = Migrate(app,db)
+mail = Mail(app)
+migrate = Migrate(app, db)
 
 
 # 定义数据库模型

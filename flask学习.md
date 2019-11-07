@@ -403,6 +403,33 @@
       (4) 根据前面的说明，检查并应用迁移脚本。
       ```
 
-      
+      可以参考：与数据库迁移相关的其他子命令参见 Flask-Migrate 文档(https://flask-migrate.readthedocs.io/)。
 
 #### 第六章 电子邮件
+
+1. 使用Flask-Mail提供电子邮件的支持，pip install flask-mail
+
+2. 简单的Flask-Mail SMTP服务器设置
+
+   | 配置          | 默认值    | 说明                                              |
+   | ------------- | --------- | ------------------------------------------------- |
+   | MAIL_SERVER   | Localhost | 电子邮件服务器的主机名或 IP 地址                  |
+   | MAIL_PORT     | 25        | 电子邮件服务器的端口                              |
+   | MAIL_USE_TLS  | False     | 启用传输层安全(TLS，transport layer security)协议 |
+   | MAIL_USE_SSL  | False     | 启用安全套接层(SSL，secure sockets layer)协议     |
+   | MAIL_USERNAME | None      | 邮件账户的用户名                                  |
+   | MAIL_PASSWORD | None      | 邮件账户的密码                                    |
+
+   
+
+3. **Waring**
+
+   ```
+   使用的是腾讯企业邮箱，开始的时候报错，smtplib.SMTPServerDisconnected: Connection unexpectedly closed
+   参看了https://www.jianshu.com/p/ab0f062da743，进行了修改，将下面的加上就好
+   app.config['MAIL_USE_SSL'] = True
+   app.config['MAIL_USE_TLS'] = False
+   这样就可以了。可以发送出去。
+   ```
+
+4. 
