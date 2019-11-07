@@ -28,6 +28,8 @@ from wtforms.validators import DataRequired
 # 数据库
 import os
 from flask_sqlalchemy import SQLAlchemy
+# 数据迁移
+from flask_migrate import Migrate
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -39,6 +41,7 @@ app.config['SECRET_KEY'] = 'hard to guess string'
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 db = SQLAlchemy(app)
+migrate = Migrate(app,db)
 
 
 # 定义数据库模型
@@ -82,6 +85,11 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
+
+
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, User=User, Role=Role)
 
 
 @app.route('/', methods=['GET', 'POST'])
