@@ -39,8 +39,9 @@ from threading import Thread
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# app配置项
 app = Flask(__name__)
+# app配置项
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'hard to guess string'
