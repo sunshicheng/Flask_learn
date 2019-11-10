@@ -5,8 +5,8 @@ FileName : __init__.py
 
 """
 
-from flask import Flask
-from config import config
+from flask import Flask,render_template
+from ..config import config
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_login import LoginManager
@@ -25,7 +25,7 @@ login_manager.login_view = 'auth.login'
 
 def create_app(config_name):
     app = Flask(__name__)
-    app.config.from_object(config['development'])
+    app.config.from_object(config[config_name])
     config['development'].init_app(app)
 
     bootstrap.init_app(app)
