@@ -1,3 +1,8 @@
+"""
+第一版的完整文件
+
+"""
+
 import os
 from flask_mail import Mail
 from threading import Thread
