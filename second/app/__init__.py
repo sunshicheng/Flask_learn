@@ -6,7 +6,7 @@ FileName : __init__.py
 """
 
 from flask import Flask, render_template
-from ..config import config
+from config import config
 from flask_mail import Mail
 from flask_moment import Moment
 from flask_login import LoginManager
