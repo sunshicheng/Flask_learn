@@ -435,6 +435,8 @@
 4. 相关export
 
    ```
+   export FLASK_DEBUG=1
+   export FLASK_APP=falsky.py
    export FLASK_ADMIN=1248185022@qq.com
    export MAIL_USERNAME=sunshicheng@xiaozhu.com
    export MAIL_PASSWORD=密码
