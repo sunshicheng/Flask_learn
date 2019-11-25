@@ -436,10 +436,10 @@
 
    ```
    export FLASK_DEBUG=1
-   export FLASK_APP=falsky.py
+   export FLASK_APP=flasky.py
    export FLASK_ADMIN=1248185022@qq.com
    export MAIL_USERNAME=sunshicheng@xiaozhu.com
-   export MAIL_PASSWORD=密码
+   export MAIL_PASSWORD=Ssc940929
    ```
 
 
@@ -503,4 +503,40 @@
    应用的路由保存在包里的 app/main/views.py 模块中，而错误处理程序保存在 app/main/ errors.py 模块中。导入这两个模块就能把路由和错误处理程序与蓝本关联起来。注意，这 些模块在 app/main/__init__.py 脚本的末尾导入，这是为了避免循环导入依赖，因为在 app/ main/views.py 和 app/main/errors.py 中还要导入 main 蓝本，所以除非循环引用出现在定义 main 之后，否则会致使导入出错
    ```
 
+3. **出现的问题**：
+
+   - 一直引包失败，将示例中的包拷贝过来之后，这个问题解决，目前不知道什么原因
+
+
+
+#### 第八章 用户身份验证
+
+1. 相关包和相关的用途
+
+   ```
+   Flask-Login:管理已登录用户的用户会话 
+   Werkzeug:计算密码散列值并进行核对
+   itsdangerous:生成并核对加密安全令牌
+   Flask-Mail:发送与身份验证相关的电子邮件
+   Flask-Bootstrap:HTML 模板
+   Flask-WTF:Web 表单
+   ```
+
    
+
+2. 使用flask_login验证用户身份
+
+   - Flask-Login 的运转需要应用中有 User 对象。要想使用 Flask-Login 扩展，应用的 User 模型 
+
+     必须实现几个属性和方法
+
+     | 方法             | 说明                                                         |
+     | ---------------- | ------------------------------------------------------------ |
+     | is_authenticated | 如果用户提供的登录凭据有效，必须返回 True，否则返回 False    |
+     | is_activate      | 如果允许用户登录，必须返回 True，否则返回 False。如果想禁用账户，可以返回 False |
+     | is_anonymous     | 对普通用户必须始终返回 False，如果是表示匿名用户的特殊用户对象，应该返回 True |
+     | get_id()         | 必须返回用户的唯一标识符，使用 Unicode 编码字符串            |
+
+   - 
+
+3. 
