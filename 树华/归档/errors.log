@@ -1,0 +1,37 @@
+2019-12-06 10:40:33,792 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 10:41:05,015 - file - ERROR - /api/addjob? exception 400 Bad Request: miss parameters {}
+2019-12-06 10:45:05,889 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:26:50,481 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:27:34,878 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:29:09,627 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:39:08,649 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:40:45,846 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:45:52,947 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 11:46:46,580 - file - ERROR - /api/userlist? exception Object of type InstanceState is not JSON serializable
+2019-12-06 11:49:45,172 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 13:43:38,507 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 13:57:17,467 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 14:57:41,869 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:00:00,436 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:01:18,108 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:01:42,174 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:09:06,161 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:10:45,780 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:11:18,379 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 15:11:23,404 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:14:09,042 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 15:14:16,003 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:23:09,002 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:25:18,270 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:26:17,494 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:27:57,776 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:29:01,601 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:30:03,923 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:30:56,043 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:31:22,426 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:41:39,021 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:44:07,168 - file - ERROR - /api/addversion? exception 400 Bad Request: bad request ,dose not contain newversion params
+2019-12-06 15:49:56,832 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 15:50:16,481 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 16:07:07,469 - werkzeug - WARNING -  * Debugger is active!
+2019-12-06 16:09:04,443 - werkzeug - WARNING -  * Debugger is active!
